@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Global Shark Attacks Dashboard</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+  <header><h1>Global Shark Attacks Dashboard</h1></header>
+  <main>
+    <!-- 1) Karte -->
+    <section class="map">
+      <h2>Shark Attack Locations</h2>
+      <div class="map-container">
+        <iframe src="{{ map_url }}"></iframe>
+      </div>
+    </section>
+
+    <!-- 2) Chat-Interface -->
+    <section class="chat">
+      <h2>Ask the AI Agent</h2>
+      <div id="chat-window"></div>
+      <form id="chat-form">
+        <input type="text" id="user-input" placeholder="Ask about the data or request a chart…" required>
+        <button type="submit">Send</button>
+      </form>
+    </section>
+
+    <!-- 3) Generierte Charts -->
+    <section id="generated-charts" class="charts"></section>
+
+    <!-- 4) Statistische Charts -->
+    <section class="charts">
+      {% for filename,title in graphs %}
+      <div class="chart-card">
+        <h2>{{ title }}</h2>
+        <img src="{{ url_for('static', filename=filename) }}" alt="{{ title }}">
+      </div>
+      {% endfor %}
+    </section>
+
+    <!-- 5) Rohdaten -->
+    <section class="table">
+      <h2>Raw Data</h2>
+      <div class="table-container">
+        <table>
+          <thead><tr>{% for col in columns %}<th>{{ col }}</th>{% endfor %}</tr></thead>
+          <tbody>
+          {% for row in records %}
+            <tr>{% for col in columns %}<td>{{ row[col] }}</td>{% endfor %}</tr>
+          {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+  <script src="{{ url_for('static', filename='js/chat.js') }}"></script>
+</body>
+</html>

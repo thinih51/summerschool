@@ -13,3 +13,5 @@ agentpy==0.1.5
 ipympl==0.9.3
 streamlit==1.46.1
 altair==5.5.0
+folium
+flask-cors

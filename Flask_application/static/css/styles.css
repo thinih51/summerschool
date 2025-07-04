@@ -1,0 +1,135 @@
+:root {
+    --primary: #2a9d8f;
+    --secondary: #e9c46a;
+    --bg-light: #f7f9fa;
+    --text-dark: #333;
+    --card-shadow: rgba(0, 0, 0, 0.1);
+}
+
+/* Reset und Grundlegendes */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    background: var(--bg-light);
+    color: var(--text-dark);
+    line-height: 1.6;
+    padding: 1rem;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    color: var(--primary);
+    text-shadow: 1px 1px var(--card-shadow);
+}
+
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Karte */
+.map-container {
+    width: 100%;
+    height: 500px;
+    margin-bottom: 2rem;
+}
+
+.map-container iframe {
+    border: none;
+    width: 100%;
+    height: 100%;
+}
+
+/* Charts */
+.charts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.chart-card {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px var(--card-shadow);
+    padding: 1rem;
+    flex: 1 1 300px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.chart-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px var(--card-shadow);
+}
+
+.chart-card h2 {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+    color: var(--secondary);
+}
+
+.chart-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+/* Daten-Tabelle */
+.table {
+    background: #fff;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px var(--card-shadow);
+}
+
+.table-container {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 800px;
+}
+
+thead {
+    background: var(--primary);
+    color: #fff;
+}
+
+th,
+td {
+    padding: 0.75rem;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+tbody tr:nth-child(odd) {
+    background: #f0f4f8;
+}
+
+tbody tr:hover {
+    background: var(--secondary);
+    color: #fff;
+}
+
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 2rem;
+    }
+
+    .chart-card {
+        flex: 1 1 100%;
+    }
+}
